@@ -164,4 +164,4 @@ Dynamic UI parameters can be exported or imported in bulk via `PTZ.json`.
 3. **Card Hierarchy Rules:** Do not nest dark/gray sub-cards within primary white card containers.
 4. **Mi-like Naming Convention:** Always refer to the design language as "Mi-like". Do not use "X****i".
 5. **No Phone Frames:** Designed strictly for standard web app viewports. Do not enclose the layout in mobile device frames.
-6. **Content Guidelines:** When creating applications (e.g., Countryball / Polandball apps), avoid political satire, sarcasm, or offensive slang (such as *kurwa* or *anschluss*) to maintain an accessible experience for all users.
+6. **Content Guidelines:** This app is free, but please use it for good.
