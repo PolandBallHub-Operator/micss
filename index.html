@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HelloMiCSS - Showcase & Guide</title>
+
+  <!-- Google Fonts: Material Symbols Outlined -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Micss CDN -->
+  <script src="https://cdn.jsdelivr.net/gh/PolandBallHub-Operator/micss@main/micsscdn.js"></script>
+
+  <style>
+    /* 最小限のレイアウトとオーバースクロール防止設定 */
+    :root {
+      color-scheme: light;
+      --bg-main: #f8f9fa;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overscroll-behavior: none;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 16px 64px 16px;
+    }
+
+    /* ヒーローセクション（カード無しで配置） */
+    .hero {
+      padding: 48px 16px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin: 0 0 16px 0;
+      letter-spacing: -0.025em;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 28px auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 36px 0 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 0;
+      color: var(--text-muted);
+      border-top: 1px solid #e5e7eb;
+      margin-top: 48px;
+    }
+
+    .material-symbols-outlined {
+      vertical-align: middle;
+      font-size: 1.25em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- ヒーローセクション（カード無し） -->
+    <section class="hero">
+      <h1 class="hero-title">Hello MiCSS</h1>
+      <p class="hero-subtitle">
+        ビルドツール不要。Vanilla HTML/JS にスクリプトを1つ読み込むだけで動作する、軽量 Web Components UI ライブラリ。
+      </p>
+      <div class="hero-actions">
+        <dc-button id="btn-hero-github">
+          <span class="external-link">
+            <span class="material-symbols-outlined">code</span>
+            GitHub リポジトリ
+          </span>
+        </dc-button>
+        <dc-button variant="secondary" id="btn-hero-demo">
+          <span class="external-link">
+            <span class="material-symbols-outlined">play_arrow</span>
+            デモを試す
+          </span>
+        </dc-button>
+      </div>
+    </section>
+
+    <!-- 主な特徴 -->
+    <h2 class="section-title">
+      <span class="material-symbols-outlined">star</span>
+      主な特徴
+    </h2>
+    <div class="grid-2">
+      <dc-card>
+        <h3>
+          <span class="material-symbols-outlined">bolt</span>
+          ビルド不要・即時利用
+        </h3>
+        <p>npm, Webpack, Vite などの環境構築は一切不要。<code>&lt;script&gt;</code> タグを追加するだけで利用を開始できます。</p>
+      </dc-card>
+      <dc-card>
+        <h3>
+          <span class="material-symbols-outlined">extension</span>
+          Shadow DOM カプセル化
+        </h3>
+        <p>Custom Elements と Shadow DOM を採用しており、ページの既存スタイルと干渉せずに独立した UI を提供します。</p>
+      </dc-card>
+    </div>
+
+    <!-- コンポーネント インタラクティブ・デモ -->
+    <h2 class="section-title" id="demo-section">
+      <span class="material-symbols-outlined">widgets</span>
+      コンポーネント デモ
+    </h2>
+
+    <div class="grid-2">
+      <!-- フォームコントロール -->
+      <dc-card>
+        <h3>フォームエレメント</h3>
+        <div class="demo-item">
+          <label>入力欄 (dc-input)</label>
+          <dc-input id="demo-input" placeholder="名前を入力してください..."></dc-input>
+        </div>
+        <div class="demo-item" style="margin-top: 12px;">
+          <label>スライダー (dc-slider)</label>
+          <dc-slider id="demo-slider" min="0" max="100" value="40" unit="%" label="音量"></dc-slider>
+        </div>
+        <div class="demo-item" style="margin-top: 12px;">
+          <label>トグルスイッチ (dc-toggle)</label>
+          <div>
+            <dc-toggle id="demo-toggle" checked></dc-toggle>
+            <span id="toggle-status" style="margin-left: 8px; vertical-align: middle;">有効</span>
+          </div>
+        </div>
+      </dc-card>
+
+      <!-- ダイアログとトースト通知 -->
+      <dc-card>
+        <h3>インタラクション</h3>
+        <p>ボタンを押してトースト表示やダイアログの開閉をテストできます。</p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px;">
+          <dc-button id="btn-show-toast">
+            <span class="material-symbols-outlined">notifications</span>
+            トーストを表示
+          </dc-button>
+          <dc-button variant="secondary" id="btn-open-dialog">
+            <span class="material-symbols-outlined">open_in_new</span>
+            ダイアログを開く
+          </dc-button>
+        </div>
+        <div style="margin-top: 16px;">
+          <label>バッジ (dc-badge):</label>
+          <dc-badge>Standard</dc-badge>
+          <dc-badge>v1.0</dc-badge>
+        </div>
+      </dc-card>
+    </div>
+
+    <!-- リストとコード表示 -->
+    <dc-card style="margin-bottom: 24px;">
+      <h3>リストコンポーネント (dc-list)</h3>
+      <dc-list>
+        <dc-list-item>
+          <span slot="title">Web Components</span>
+          <span slot="description">標準ブラウザ API に準拠したコンポーネント設計</span>
+          <dc-button slot="action" id="btn-list-1" variant="secondary">詳細</dc-button>
+        </dc-list-item>
+        <dc-list-item>
+          <span slot="title">Custom Events</span>
+          <span slot="description"><code>dc-press</code> や <code>dc-input</code> などのイベントハンドリング</span>
+          <dc-button slot="action" id="btn-list-2" variant="secondary">詳細</dc-button>
+        </dc-list-item>
+      </dc-list>
+    </dc-card>
+
+    <h2 class="section-title">
+      <span class="material-symbols-outlined">code</span>
+      コード例
+    </h2>
+    <dc-card>
+      <dc-code>
+&lt;!-- 最小実装コード例 --&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/PolandBallHub-Operator/micss@main/micsscdn.js"&gt;&lt;/script&gt;
+
+&lt;dc-card&gt;
+  &lt;h2&gt;Hello World&lt;/h2&gt;
+  &lt;dc-button id="my-btn"&gt;Click Me&lt;/dc-button&gt;
+&lt;/dc-card&gt;
+
+&lt;script&gt;
+  document.querySelector('#my-btn').addEventListener('dc-press', () => {
+    alert('Hello MiCSS!');
+  });
+&lt;/script&gt;
+      </dc-code>
+    </dc-card>
+
+    <!-- ダイアログ定義 -->
+    <dc-dialog id="demo-dialog">
+      <h2>確認ダイアログ</h2>
+      <p>これは MiCSS の <code>&lt;dc-dialog&gt;</code> コンポーネントです。</p>
+      <div style="text-align: right; margin-top: 16px;">
+        <dc-button id="btn-close-dialog">閉じる</dc-button>
+      </div>
+    </dc-dialog>
+
+    <!-- トースト定義 -->
+    <dc-toast id="demo-toast"></dc-toast>
+
+    <!-- フッター -->
+    <footer>
+      <p>
+        MiCSS UI Library - 
+        <a href="https://github.com/PolandBallHub-Operator/micss/" target="_blank" rel="noopener noreferrer" style="color: inherit;">
+          GitHub Repository
+        </a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // GitHub リポジトリへの遷移
+    const githubUrl = 'https://github.com/PolandBallHub-Operator/micss/';
+    document.querySelector('#btn-hero-github').addEventListener('dc-press', () => {
+      window.open(githubUrl, '_blank', 'noopener,noreferrer');
+    });
+
+    // スクロール移動
+    document.querySelector('#btn-hero-demo').addEventListener('dc-press', () => {
+      document.querySelector('#demo-section').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // トースト通知のテスト
+    const toast = document.querySelector('#demo-toast');
+    document.querySelector('#btn-show-toast').addEventListener('dc-press', () => {
+      if (toast && typeof toast.show === 'function') {
+        toast.show('Hello MiCSS! トースト通知が開きました。');
+      }
+    });
+
+    // ダイアログの制御
+    const dialog = document.querySelector('#demo-dialog');
+    document.querySelector('#btn-open-dialog').addEventListener('dc-press', () => {
+      if (dialog && typeof dialog.open === 'function') {
+        dialog.open();
+      }
+    });
+    document.querySelector('#btn-close-dialog').addEventListener('dc-press', () => {
+      if (dialog && typeof dialog.close === 'function') {
+        dialog.close();
+      }
+    });
+
+    // トグル状態切替
+    const toggle = document.querySelector('#demo-toggle');
+    const toggleStatus = document.querySelector('#toggle-status');
+    toggle.addEventListener('dc-change', (e) => {
+      toggleStatus.textContent = e.detail.checked ? '有効' : '無効';
+    });
+
+    // リストアイテム内ボタンの動作
+    document.querySelector('#btn-list-1').addEventListener('dc-press', () => {
+      if (toast && typeof toast.show === 'function') toast.show('Web Components の項目が選択されました');
+    });
+    document.querySelector('#btn-list-2').addEventListener('dc-press', () => {
+      if (toast && typeof toast.show === 'function') toast.show('Custom Events の項目が選択されました');
+    });
+  </script>
+</body>
+</html>
